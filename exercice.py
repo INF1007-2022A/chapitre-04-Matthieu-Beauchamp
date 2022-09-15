@@ -3,23 +3,32 @@
 
 
 def is_even_len(string: str) -> bool:
-    pass
+    return not len(string) & 1
 
 
 def remove_third_char(string: str) -> str:
-    pass
+    return string[:2] + string[3:]
 
 
 def replace_char(string: str, old_char: str, new_char: str) -> str:
-    pass
+    return string.replace(old_char, new_char)
 
 
 def get_number_of_char(string: str, char: str) -> int:
-    pass
+    if len(char) != 1:
+        raise ValueError(f"Expected a single character, received \"{char}\"")
+
+    nTimes = 0
+    for ch in string:
+        if ch == char:
+            nTimes += 1
+    
+    return nTimes
 
 
+# This is not the same as what is asked in the course's slides
 def get_number_of_words(sentence: str, word: str) -> int:
-    pass
+    return sentence.count(word)
 
 
 def main() -> None:
